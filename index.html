@@ -64,13 +64,9 @@
   <div class="topbar-l">
     <img src="/assets/images/brand/LOGO WHITE.png" alt="Scuderia Bandeiras × Caterham Motorsport Brasil">
   </div>
-  <div class="topbar-nav">
-    <a href="/" class="active">Race Experience</a>
-    <a href="#sec-for-business" class="topbar-nav-cta">For Business</a>
-  </div>
   <div class="topbar-r">
-    <span class="topbar-meta">RACE EXPERIENCE · <span>SCUDERIA BANDEIRAS</span></span>
-    <a href="#sec-packages" class="btn btn-lime">
+    <span class="topbar-meta">FESTIVAL DE INTERLAGOS · <span>SCUDERIA BANDEIRAS</span></span>
+    <a href="#sec-fast-laps" class="btn btn-lime">
       <span class="flag"></span>Garantir vaga
     </a>
   </div>
@@ -82,8 +78,11 @@
 <!-- ═══════════════════ MOBILE NAV ════════════════════ -->
 <div class="mob-nav" id="mobNav">
   <nav class="mob-nav-links">
-    <a href="/" class="mob-nav-link active">Race Experience</a>
-    <a href="#sec-for-business" class="mob-nav-link mob-nav-link--cta">For Business</a>
+    <a href="#sec-ativacoes" class="mob-nav-link">A Experiência</a>
+    <a href="#sec-caterham-what" class="mob-nav-link">Os Modelos</a>
+    <a href="#sec-fast-laps" class="mob-nav-link">Pacotes</a>
+    <a href="#sec-cronograma" class="mob-nav-link">Programação</a>
+    <a href="#sec-fast-laps" class="mob-nav-link mob-nav-link--cta">Garantir vaga</a>
   </nav>
 </div>
 
@@ -91,7 +90,7 @@
 
 <!-- ═══════════════════ SEÇÕES VISÍVEIS (ordem V3 — foco no evento) ═══════════════════ -->
 <section id="reel">
-  <video class="reel-desk" id="reelDesk" autoplay muted loop playsinline>
+  <video class="reel-desk" id="reelDesk" autoplay muted loop playsinline preload="none">
     <source src="/assets/videos/desk.mp4" type="video/mp4">
   </video>
   <video class="reel-mob" id="reelMob" autoplay muted loop playsinline>
@@ -126,11 +125,11 @@
         Mais do que velocidade. Uma <span class="lime">experiência de pista</span>.
       </h1>
       <p class="hero-sub d1" data-r="up">
-        Viva a emoção do Caterham em um dos eventos mais exclusivos do Brasil.
+        Viva a emoção do Caterham no Autódromo de Interlagos.
       </p>
       <div class="hero-cta d2" data-r="up">
-        <a href="#sec-packages" class="btn btn-lime">
-          <span class="flag"></span>PARTICIPAR — 26 DE JULHO
+        <a href="#sec-fast-laps" class="btn btn-lime">
+          <span class="flag"></span>PARTICIPAR — 27 A 30 DE AGOSTO
         </a>
       </div>
     </div>
@@ -139,9 +138,9 @@
   <!-- ticker -->
   <div class="ticker">
     <div class="ticker-track">
-      <span>Caterham 7</span><span>Pilotos profissionais</span><span>Autódromo Fazenda Capuava</span>
+      <span>Caterham 7</span><span>Pilotos profissionais</span><span>Autódromo de Interlagos</span>
       <span>Para empresas e equipes corporativas</span><span>1 dia completo</span><span>100% exclusivo</span>
-      <span>Caterham 7</span><span>Pilotos profissionais</span><span>Autódromo Fazenda Capuava</span>
+      <span>Caterham 7</span><span>Pilotos profissionais</span><span>Autódromo de Interlagos</span>
       <span>Para empresas e equipes corporativas</span><span>1 dia completo</span><span>100% exclusivo</span>
     </div>
   </div>
@@ -308,177 +307,168 @@
 
 </section>
 
-<!-- ══════════════════ O EVENTO — VISÃO GERAL ════════════════════ -->
+<!-- ══════════════════ O FESTIVAL — TRANSIÇÃO EMOCIONAL ════════════════════
+     Redesign: fotografia como protagonista (full-bleed), painel premium
+     sobreposto (glass sutil), data deixa de ser o elemento dominante.
+     Namespace CSS "fst-" (festival), isolado — nada de .evo-*/.fest-* antigos.
+════════════════════════════════════════════════════════════════════════ -->
 <section id="sec-event-overview">
-  <div class="wrap">
 
-    <div class="evo-header" data-r>
-      <span class="label">O Evento</span>
-      <h2 class="evo-headline">Um dia inteiro<br>na <em>pista.</em></h2>
-      <p class="evo-subtext">A Race Experience é um evento presencial de um dia completo no Autódromo Fazenda Capuava.</p>
+  <div class="wrap fst-hero">
+    <div class="fst-brand" data-r="up">
+      <img src="/assets/icons/cropped-logo_festival-1.webp" alt="Suhai Festival Interlagos" class="fst-logo">
+      <span class="label">O Festival</span>
     </div>
 
-    <div class="evo-grid" data-r="up">
+    <h2 class="fst-headline d1" data-r="up">Viva a experiência<br>no <em>Suhai Festival</em><br>Interlagos</h2>
 
-      <div class="evo-item" style="background-image:url('/assets/images/sections/o-evento/coffee-break.jpg')">
-        <h3 class="evo-item-title">Coffee Break<br>de Chegada</h3>
-        <div class="evo-item-overlay">
-          <div class="evo-item-num mono">01</div>
-          <div class="evo-item-content">
-            <h3 class="evo-item-title">Coffee Break<br>de Chegada</h3>
-            <p class="evo-item-desc">O dia começa com credenciamento e café da manhã completo.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="evo-item" style="background-image:url('/assets/images/sections/o-evento/na-pista-com-caterham.jpg')">
-        <h3 class="evo-item-title">Na Pista com<br>o Caterham</h3>
-        <div class="evo-item-overlay">
-          <div class="evo-item-num mono">02</div>
-          <div class="evo-item-content">
-            <h3 class="evo-item-title">Na Pista com<br>o Caterham</h3>
-            <p class="evo-item-desc">Voltas em alta velocidade ao lado de pilotos profissionais no Caterham SS600 e/ou 420R.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="evo-item" style="background-image:url('/assets/images/sections/o-evento/painel-alem-da-pista.jpg')">
-        <h3 class="evo-item-title">Painel Além<br>da Pista</h3>
-        <div class="evo-item-overlay">
-          <div class="evo-item-num mono">03</div>
-          <div class="evo-item-content">
-            <h3 class="evo-item-title">Painel Além<br>da Pista</h3>
-            <p class="evo-item-desc">Bate-papo com Átila Abreu, Nelson Piquet Jr., Christian Fittipaldi e Ingo Hoffmann, representantes da Scuderia Bandeiras.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="evo-item" style="background-image:url('/assets/images/sections/o-evento/almoco.jpg')">
-        <h3 class="evo-item-title">Almoço</h3>
-        <div class="evo-item-overlay">
-          <div class="evo-item-num mono">04</div>
-          <div class="evo-item-content">
-            <h3 class="evo-item-title">Almoço</h3>
-            <p class="evo-item-desc">Entre uma experiência e outra, desfrute de um almoço completo.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="evo-item" style="background-image:url('/assets/images/sections/o-evento/race-experience.jpg')">
-        <h3 class="evo-item-title">Race Experience</h3>
-        <div class="evo-item-overlay">
-          <div class="evo-item-num mono">05</div>
-          <div class="evo-item-content">
-            <h3 class="evo-item-title">Race Experience</h3>
-            <p class="evo-item-desc">Uma corrida real com pilotos profissionais competindo de verdade.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="evo-item" style="background-image:url('/assets/images/sections/o-evento/ativacoes.jpg')">
-        <h3 class="evo-item-title">Ativações</h3>
-        <div class="evo-item-overlay">
-          <div class="evo-item-num mono">06</div>
-          <div class="evo-item-content">
-            <h3 class="evo-item-title">Ativações</h3>
-            <p class="evo-item-desc">Cada dinâmica reproduz um pouco do que move o dia a dia de quem vive a pista.</p>
-          </div>
-        </div>
-      </div>
-
+    <div class="fst-meta d2" data-r="up">
+      <p class="fst-dates">De 27 a 30 de agosto de 2026</p>
+      <p class="fst-place">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+        Autódromo José Carlos Pace <span class="fst-place-sep">·</span> <span class="fst-accent">Interlagos</span>
+      </p>
     </div>
-
-    <div class="evo-footnote" data-r="up">
-      <span class="evo-footnote-line"></span>
-      <p class="evo-footnote-text">Autódromo Fazenda Capuava · Indaiatuba / SP · 26 de Julho de 2026</p>
-      <span class="evo-footnote-line"></span>
-    </div>
-
   </div>
+
+  <div class="fst-photo-stage">
+    <div class="fst-photo d3" data-r="up">
+      <img
+        src="/assets/images/sections/o-evento/festival-hero.jpg"
+        srcset="/assets/images/sections/o-evento/festival-hero-1200.jpg 1200w, /assets/images/sections/o-evento/festival-hero.jpg 2400w"
+        sizes="100vw"
+        alt="Caterhams disputando a pista lado a lado no Suhai Festival Interlagos"
+        loading="lazy">
+    </div>
+
+    <div class="fst-panel-anchor wrap">
+      <div class="fst-panel d4" data-r="up">
+        <p class="fst-panel-lead">Você estará dentro do maior festival de automobilismo do Brasil.</p>
+        <p class="fst-panel-text">Durante quatro dias, o Suhai Festival Interlagos reúne milhares de apaixonados por velocidade.</p>
+        <p class="fst-panel-text">É nesse cenário que a Scuderia Bandeiras oferece experiências exclusivas a bordo dos lendários Caterham Seven.</p>
+
+        <ul class="fst-checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 12.3l2.6 2.6L16.2 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Fast Lap Experience</li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 12.3l2.6 2.6L16.2 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Race Experience</li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 12.3l2.6 2.6L16.2 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Truck Lounge exclusivo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 12.3l2.6 2.6L16.2 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Acesso incluso ao Festival</li>
+        </ul>
+
+        <a href="#sec-fast-laps" class="btn btn-lime fst-cta">Garantir minha experiência</a>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     §5  ATIVAÇÕES
-     C1: Classes HTML mantidas como estão (.atv-card, .atv-grid-wrap, etc.)
-     O agente CSS criará os estilos correspondentes
+     §5  ATIVAÇÕES — Narrativa cinematográfica com pin/scroll
+     Namespace CSS "chp-" (chapters), isolado de .atv-* para não
+     afetar pages/team-building.html, que reaproveita várias
+     classes .atv-* deste components.css.
+     Mecânica: mesmo padrão já usado em #sec-caterham-exp (wrapper
+     alto + elemento sticky + progresso 0..1 lido no scroll) —
+     sem GSAP, JS puro, consistente com o resto do site.
 ════════════════════════════════════════════════════════ -->
-<section id="sec-ativacoes">
-  <div class="wrap atv-head" data-r="up">
-    <span class="label">Ativações</span>
-    <h2 class="atv-h2">O que acontece<br><em>durante o dia</em></h2>
-    <p class="atv-intro">Cada ativação reproduz a rotina de preparação de um piloto profissional.</p>
-  </div>
+<section id="sec-ativacoes" aria-label="O que acontece durante o dia">
+  <div class="chp-pin" id="chpPin">
 
-  <div class="atv-grid-wrap">
-    <div class="atv-card d1" data-r="up" data-index="01">
-      <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/reflexos-rapidos.jpg" alt="Reflexo" loading="lazy">
-      <div class="atv-overlay"></div>
-      <span class="atv-num mono">01</span>
-      <div class="atv-info">
-        <h3 class="atv-name">Reflexo</h3>
-        <p class="atv-desc">Uma dinâmica que desafia velocidade de reação, leitura de cenário e capacidade de resposta sob pressão real.</p>
-      </div>
+    <div class="chp-head" data-r="up">
+      <span class="label">Ativações</span>
+      <h2 class="chp-h2">O que acontece<br><em>durante o dia</em></h2>
     </div>
 
-    <div class="atv-card d2" data-r="up" data-index="02">
-      <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/analise-de-painel.jpg" alt="Simuladores" loading="lazy">
-      <div class="atv-overlay"></div>
-      <span class="atv-num mono">02</span>
-      <div class="atv-info">
-        <h3 class="atv-name">Simuladores</h3>
-        <p class="atv-desc">Simuladores profissionais recriam a tensão da pista, testando reflexos e tomada de decisão em tempo real.</p>
-      </div>
-    </div>
+    <div class="chp-stage">
+      <div class="chp-panel">
+        <div class="chp-item-stack">
+        <div class="chp-item" data-chp="0" aria-hidden="false">
+          <span class="chp-num mono">01</span>
+          <h3 class="chp-title">Reaction Light</h3>
+          <p class="chp-desc">Teste sua velocidade de reação em um desafio inspirado nos treinamentos utilizados por pilotos profissionais. Concentração, reflexos e tomada de decisão à prova.</p>
+          <ul class="chp-icons">
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Reação sob pressão</span></li>
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg><span>Inspirado em pilotos</span></li>
+          </ul>
+        </div>
 
-    <div class="atv-card d3" data-r="up" data-index="03">
-      <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/pit-stop-challenge.jpg" alt="Pit Stop Challenge" loading="lazy">
-      <div class="atv-overlay"></div>
-      <span class="atv-num mono">03</span>
-      <div class="atv-info">
-        <h3 class="atv-name">Pit Stop Challenge</h3>
-        <p class="atv-desc">Cronômetro ligado. Inspirado nos boxes das equipes profissionais.</p>
-      </div>
-    </div>
-  </div>
+        <div class="chp-item" data-chp="1" aria-hidden="true">
+          <span class="chp-num mono">02</span>
+          <h3 class="chp-title">Simuladores</h3>
+          <p class="chp-desc">Entre em um simulador de alta performance e sinta a tensão de pilotar em um circuito de corrida — a preparação perfeita para o que vem a seguir.</p>
+          <ul class="chp-icons">
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Alta performance</span></li>
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 20h6M12 17v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Simulação realista</span></li>
+          </ul>
+        </div>
 
-  <!-- Mobile horizontal scroll -->
-  <div class="atv-scroll-wrap">
-    <div class="atv-scroll-track">
+        <!-- TODO: foto Fast Lap Experience a definir -->
+        <div class="chp-item" data-chp="2" aria-hidden="true">
+          <span class="chp-num mono">03</span>
+          <h3 class="chp-title">Fast Lap Experience</h3>
+          <p class="chp-desc">Sinta a aceleração, a frenagem e o comportamento de um Caterham em uma volta emocionante pelo circuito, como passageiro ao lado de um piloto da Scuderia Bandeiras.</p>
+          <p class="chp-note">Importante: nesta experiência o participante não pilota o veículo.</p>
+          <ul class="chp-icons">
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V9l5-5h6l5 5v11" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 13h16" stroke="currentColor" stroke-width="1.5"/></svg><span>Como passageiro</span></li>
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Piloto Scuderia Bandeiras</span></li>
+          </ul>
+        </div>
 
-      <div class="atv-card atv-scroll-card">
-        <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/reflexos-rapidos.jpg" alt="Reflexo" loading="lazy">
-        <div class="atv-overlay"></div>
-        <span class="atv-num mono">01</span>
-        <div class="atv-info">
-          <h3 class="atv-name">Reflexo</h3>
-          <p class="atv-desc">Uma dinâmica que desafia velocidade de reação, leitura de cenário e capacidade de resposta sob pressão real.</p>
+        <!-- TODO: foto Race Experience a definir (referência: o-evento/race-experience.jpg já usada) -->
+        <div class="chp-item" data-chp="3" aria-hidden="true">
+          <span class="chp-num mono">04</span>
+          <h3 class="chp-title">Race Experience</h3>
+          <p class="chp-desc">Viva a rotina de uma equipe de competição. Acompanhe um piloto profissional dentro do Caterham e descubra a emoção de enfrentar o circuito em um carro de corrida.</p>
+          <p class="chp-note">Importante: a condução é realizada exclusivamente por um piloto profissional.</p>
+          <ul class="chp-icons">
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3v18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 4h13l-3 3.5L18 11H5V4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Como passageiro</span></li>
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0V4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 5H3v2a3 3 0 0 0 3 3M18 5h3v2a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Emoção de corrida</span></li>
+          </ul>
+        </div>
+
+        <div class="chp-item" data-chp="4" aria-hidden="true">
+          <span class="chp-num mono">05</span>
+          <h3 class="chp-title">Truck Lounge</h3>
+          <p class="chp-desc">Um espaço exclusivo da Scuderia Bandeiras para relaxar, fazer networking e aproveitar o Festival de Interlagos com conforto — e, à noite, uma das melhores vistas para o show.</p>
+          <ul class="chp-icons">
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3v10a4 4 0 0 0 4 4h1a4 4 0 0 0 4-4V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 21h10M7 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 6h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2" stroke="currentColor" stroke-width="1.5"/></svg><span>Networking</span></li>
+            <li class="chp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Vista privilegiada à noite</span></li>
+          </ul>
+        </div>
+        </div>
+
+        <a href="#sec-fast-laps" class="btn btn-lime chp-cta">Garantir minha vaga</a>
+
+        <div class="chp-foot">
+          <div class="chp-progress-track" aria-hidden="true"><div class="chp-progress-fill" id="chpProgressFill"></div></div>
+          <div class="chp-nums" id="chpNums" role="tablist" aria-label="Escolher experiência">
+            <button class="chp-num-btn active" type="button" data-chp-goto="0" role="tab" aria-selected="true">01</button>
+            <button class="chp-num-btn" type="button" data-chp-goto="1" role="tab" aria-selected="false">02</button>
+            <button class="chp-num-btn" type="button" data-chp-goto="2" role="tab" aria-selected="false">03</button>
+            <button class="chp-num-btn" type="button" data-chp-goto="3" role="tab" aria-selected="false">04</button>
+            <button class="chp-num-btn" type="button" data-chp-goto="4" role="tab" aria-selected="false">05</button>
+          </div>
         </div>
       </div>
-      <div class="atv-card atv-scroll-card">
-        <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/analise-de-painel.jpg" alt="Simuladores" loading="lazy">
-        <div class="atv-overlay"></div>
-        <span class="atv-num mono">02</span>
-        <div class="atv-info">
-          <h3 class="atv-name">Simuladores</h3>
-          <p class="atv-desc">Simuladores profissionais recriam a tensão da pista, testando reflexos e tomada de decisão em tempo real.</p>
+
+      <div class="chp-media" id="chpMedia">
+        <div class="chp-media-img" data-chp="0">
+          <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/reaction-light.jpg" alt="Participante testando reflexos no desafio Reaction Light" loading="eager">
         </div>
-      </div>
-      <div class="atv-card atv-scroll-card">
-        <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/pit-stop-challenge.jpg" alt="Pit Stop Challenge" loading="lazy">
-        <div class="atv-overlay"></div>
-        <span class="atv-num mono">03</span>
-        <div class="atv-info">
-          <h3 class="atv-name">Pit Stop Challenge</h3>
-          <p class="atv-desc">Cronômetro ligado. Inspirado nos boxes das equipes profissionais.</p>
+        <div class="chp-media-img" data-chp="1">
+          <img src="/assets/images/sections/se%C3%A7%C3%A3o-5/analise-de-painel.jpg" alt="Simulador de alta performance" loading="lazy">
+        </div>
+        <div class="chp-media-img" data-chp="2">
+          <img src="/assets/images/sections/se%C3%A7%C3%A3o-3/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-5071.jpg" alt="Passageiros no Caterham durante o Fast Lap Experience" loading="lazy">
+        </div>
+        <div class="chp-media-img" data-chp="3">
+          <img src="/assets/images/sections/o-evento/race-experience.jpg" alt="Caterhams disputando pista na Race Experience" loading="lazy">
+        </div>
+        <div class="chp-media-img" data-chp="4">
+          <img src="/assets/images/Truck%20Lounge.png" alt="Truck Lounge da Scuderia Bandeiras no Festival de Interlagos" loading="lazy">
         </div>
       </div>
     </div>
-  </div>
-  <!-- Setas de navegação (mobile) — fora do scroll wrap para não se mover com os cards -->
-  <div class="atv-scroll-nav">
-    <button class="atv-nav-btn" id="atvPrev" aria-label="Anterior">&#8592;</button>
-    <div class="atv-nav-dots" id="atvDots"></div>
-    <button class="atv-nav-btn" id="atvNext" aria-label="Próximo">&#8594;</button>
+
   </div>
 </section>
 
@@ -488,26 +478,34 @@
 <section id="sec-panel">
   <div class="panel-top">
     <div class="panel-title-col" data-r="up">
-      <span class="label">Painel</span>
+      <span class="label">Presenças Especiais</span>
       <h2 class="panel-headline">ALÉM<br><em>DA PISTA</em></h2>
     </div>
     <div class="panel-text-col" data-r="up">
-      <p class="panel-body">Bate-papo exclusivo com <strong>Átila Abreu, Nelson Piquet Jr., Christian Fittipaldi e Ingo Hoffmann</strong>, representantes da Scuderia Bandeiras. Os convidados terão a chance de ouvir de perto as trajetórias desses ícones do automobilismo, suas histórias, conquistas e bastidores de uma carreira nas pistas.</p>
+      <p class="panel-body">Muito mais do que um encontro com grandes nomes do automobilismo, esta é a oportunidade de viver o evento ao lado de quem fez história nas pistas.</p>
+      <p class="panel-body"><strong>Átila Abreu, Christian Fittipaldi e Ingo Hoffmann</strong> estarão presentes durante toda a experiência, participando de bate-papos exclusivos, compartilhando histórias de suas carreiras e pilotando os Caterham nas ativações do evento.</p>
+      <p class="panel-body">Além de acompanhar esses ícones de perto, os convidados poderão viver experiências inesquecíveis ao lado dos pilotos, embarcando como passageiros em momentos selecionados da programação, sempre com condução realizada por um piloto profissional.</p>
     </div>
   </div>
   <div class="panel-photos" data-r="up">
     <div class="panel-photo">
       <img src="/assets/images/sections/se%C3%A7%C3%A3o-11/atila-abreu.jpg" alt="Átila Abreu" loading="lazy">
-    </div>
-    <div class="panel-photo">
-      <img src="/assets/images/sections/se%C3%A7%C3%A3o-11/nelsinho-piquet.jpg" alt="Nelson Piquet Jr." loading="lazy">
+      <span class="panel-photo-cap">Átila Abreu</span>
     </div>
     <div class="panel-photo">
       <img src="/assets/images/sections/se%C3%A7%C3%A3o-11/cristian-fitipaldi.jpg" alt="Christian Fittipaldi" loading="lazy">
+      <span class="panel-photo-cap">Christian Fittipaldi</span>
     </div>
     <div class="panel-photo">
       <img src="/assets/images/sections/se%C3%A7%C3%A3o-11/ingohoffman.jpg" alt="Ingo Hoffmann" loading="lazy">
+      <span class="panel-photo-cap">Ingo Hoffmann</span>
     </div>
+  </div>
+  <div class="carousel-hint" aria-hidden="true"><span class="carousel-hint-icon">↔</span>Arraste para ver mais</div>
+  <div class="panel-dots" aria-hidden="true">
+    <span class="panel-dot panel-dot--active"></span>
+    <span class="panel-dot"></span>
+    <span class="panel-dot"></span>
   </div>
 </section>
 
@@ -539,12 +537,13 @@
       <div class="ft-card">
         <div class="ft-accent-bar"></div>
         <div class="ft-car-media">
-  <video class="ft-car-video" autoplay muted loop playsinline>
+  <video class="ft-car-video" autoplay muted loop playsinline preload="metadata">
     <source src="/assets/videos/cars/ss600.mp4" type="video/mp4">
     <img class="ft-car-img" src="/assets/images/sections/ficha-tecnica/SS600%20(170).jpg" alt="Caterham SS600 (170)">
   </video>
 </div>
         <div class="ft-car-name">SS600</div>
+        <p class="ft-car-desc">Nosso modelo de entrada. A essência mais pura do Seven original.</p>
         <table class="ft-table" role="table" aria-label="Ficha Técnica SS600">
           <tr><td>Motor</td><td>3 cilindros · 658cc</td></tr>
           <tr><td>Potência</td><td>84 cv @ 6.500 rpm</td></tr>
@@ -558,12 +557,13 @@
       <div class="ft-card">
         <div class="ft-accent-bar"></div>
         <div class="ft-car-media">
-  <video class="ft-car-video" autoplay muted loop playsinline>
+  <video class="ft-car-video" autoplay muted loop playsinline preload="metadata">
     <source src="/assets/videos/cars/420r.mp4" type="video/mp4">
     <img class="ft-car-img" src="/assets/images/sections/ficha-tecnica/420R.jpg" alt="Caterham 420R">
   </video>
 </div>
         <div class="ft-car-name">420R</div>
+        <p class="ft-car-desc">O mais rápido da nossa frota. Feito para quem quer sentir a adrenalina no limite.</p>
         <table class="ft-table" role="table" aria-label="Ficha Técnica 420R">
           <tr><td>Motor</td><td>4 cilindros · 1999cc</td></tr>
           <tr><td>Potência</td><td>210 cv @ 7.600 rpm</td></tr>
@@ -573,6 +573,10 @@
         </table>
       </div>
 
+    </div>
+    <div class="ft-dots" aria-hidden="true">
+      <span class="ft-dot ft-dot--active"></span>
+      <span class="ft-dot"></span>
     </div>
   </div>
 </section>
@@ -584,111 +588,129 @@
   <div class="fl-wrap">
 
     <div class="fl-header" data-r>
-      <span class="label">Preços</span>
-      <h2 class="fl-headline">Fast Laps</h2>
+      <span class="label">Experiências</span>
+      <h2 class="fl-headline">Escolha sua<br><em>experiência</em></h2>
       <div class="fl-rule"></div>
-      <p class="fl-intro">Você embarca como passageiro em um Caterham Seven, conduzido por um piloto profissional. Sinta cada curva, cada frenagem e cada arrancada na pele, guiado por quem realmente entende o que é pilotar no limite.</p>
+      <p class="fl-intro">Escolha a experiência que mais combina com você e viva um dia inesquecível ao lado da Scuderia Bandeiras durante o Festival de Interlagos.</p>
     </div>
 
-    <div class="pkg-grid" data-r="up">
+    <div class="pkg-grid pkg-grid--two" data-r="up">
 
-      <!-- Card 1: SS600 -->
-      <article class="pkg-card" aria-label="Fast Lap SS600">
-        <span class="pkg-badge pkg-badge--value">Por Volta</span>
-        <p class="pkg-tier">SS600</p>
-        <p class="pkg-tier-sub">Caterham Seven</p>
-        <div class="pkg-price-wrap">
-          <p class="pkg-price-label">Valor</p>
-          <p class="pkg-price" aria-label="R$ 2.050,00">
-            <span class="pkg-price-currency" aria-hidden="true">R$</span>2.050<span style="font-size:.55em; opacity:.6">,00</span>
-          </p>
+      <!-- Card 1: Fast Lap Experience -->
+      <article class="pkg-card" aria-label="Fast Lap Experience">
+        <div class="fl-card-head">
+          <p class="pkg-tier">Fast Lap Experience</p>
+          <span class="fl-tag">Volta Rápida</span>
         </div>
+        <p class="pkg-subtitle">A emoção de uma volta rápida em um Caterham Seven.</p>
+
+        <p class="pkg-desc">Embarque como passageiro ao lado de um piloto profissional e sinta toda a aceleração, frenagem e dinâmica de um verdadeiro carro de corrida.</p>
+        <p class="pkg-desc pkg-desc--note">O participante não pilota o veículo.</p>
+
+        <div class="fl-price-row">
+          <div class="fl-price-col">
+            <span class="fl-price-label">Valor</span>
+            <p class="fl-price-value"><span class="fl-price-currency">R$</span>800<span class="fl-price-cents">,00</span></p>
+            <span class="fl-price-car">SS600</span>
+          </div>
+          <div class="fl-price-sep"></div>
+          <div class="fl-price-col">
+            <span class="fl-price-label">Valor</span>
+            <p class="fl-price-value"><span class="fl-price-currency">R$</span>1.200<span class="fl-price-cents">,00</span></p>
+            <span class="fl-price-car">420R</span>
+          </div>
+        </div>
+
         <ul class="pkg-features">
-          <li>1 volta em alta velocidade no modelo de entrada da família Seven</li>
-          <li>Piloto profissional ao seu lado na pista</li>
+          <li>Fast Lap Experience</li>
+          <li>Piloto profissional</li>
+          <li>Equipamentos de segurança</li>
+          <li>Acesso ao Festival de Interlagos</li>
         </ul>
         <button
           class="pkg-cta pkg-cta--lime open-lead-modal"
-          data-plan="Fast Lap SS600"
-          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+Fast+Lap+SS600+da+Race+Experience+(26%2F07).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
-          data-product-key="fastlap-ss600"
-          data-category="Fast Laps"
-          data-product="SS600"
-          data-price="R$ 2.050,00"
-          aria-label="Reservar Fast Lap SS600"
-        >RESERVAR MINHA VOLTA</button>
+          data-plan="Fast Lap Experience"
+          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+Fast+Lap+Experience+do+Festival+de+Interlagos.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
+          data-product-key="fastlap-experience"
+          data-category="Experiências"
+          data-product="Fast Lap Experience"
+          aria-label="Quero viver o Fast Lap Experience"
+        >QUERO VIVER ESSA EXPERIÊNCIA</button>
       </article>
 
-      <!-- Card 2: 420R (featured) -->
-      <article class="pkg-card pkg-card--featured" aria-label="Fast Lap 420R">
-        <span class="pkg-badge pkg-badge--popular">
-          <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
-            <circle cx="4" cy="4" r="3" fill="#0e0f0c"/>
-            <path d="M4 1.5 L4.9 3.2 L6.8 3.5 L5.4 4.85 L5.74 6.74 L4 5.8 L2.26 6.74 L2.6 4.85 L1.2 3.5 L3.1 3.2 Z" fill="#0e0f0c"/>
-          </svg>
-          Mais potente
-        </span>
-        <p class="pkg-tier">420R</p>
-        <p class="pkg-tier-sub">Caterham Seven</p>
-        <div class="pkg-price-wrap">
-          <p class="pkg-price-label">Valor</p>
-          <p class="pkg-price" aria-label="R$ 2.800,00">
-            <span class="pkg-price-currency" aria-hidden="true">R$</span>2.800<span style="font-size:.55em; opacity:.6">,00</span>
-          </p>
+      <!-- Card 2: Race Experience (featured) -->
+      <article class="pkg-card pkg-card--featured" aria-label="Race Experience">
+        <span class="pkg-badge pkg-badge--popular pkg-badge--mobile-only">Mais Escolhida</span>
+        <div class="fl-card-head">
+          <p class="pkg-tier">Race Experience</p>
+          <span class="fl-tag">2 Voltas</span>
         </div>
-        <ul class="pkg-features">
-          <li>1 volta no modelo de competição — 210 cv, dry sump</li>
-          <li>Força máxima ao lado de piloto profissional</li>
-        </ul>
-        <button
-          class="pkg-cta pkg-cta--lime open-lead-modal"
-          data-plan="Fast Lap 420R"
-          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+Fast+Lap+420R+da+Race+Experience+(26%2F07).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
-          data-product-key="fastlap-420r"
-          data-category="Fast Laps"
-          data-product="420R"
-          data-price="R$ 2.800,00"
-          aria-label="Reservar Fast Lap 420R"
-        >RESERVAR MINHA VOLTA</button>
-      </article>
+        <p class="pkg-subtitle">A experiência mais intensa da Scuderia Bandeiras.</p>
 
-      <!-- Card 3: Combo -->
-      <article class="pkg-card" aria-label="Fast Lap Combo SS600 + 420R">
-        <span class="pkg-badge pkg-badge--limited">Pacote Combo</span>
-        <p class="pkg-tier">SS600<br>+ 420R</p>
-        <p class="pkg-tier-sub">Combinação completa</p>
-        <div class="pkg-price-wrap">
-          <p class="pkg-price-label">Valor</p>
-          <p class="pkg-price" aria-label="R$ 3.600,00">
-            <span class="pkg-price-currency" aria-hidden="true">R$</span>3.600<span style="font-size:.55em; opacity:.6">,00</span>
-          </p>
+        <p class="pkg-desc">Viva a sensação de estar dentro de um Caterham de competição acompanhado por um piloto profissional durante uma experiência exclusiva em pista.</p>
+        <p class="pkg-desc pkg-desc--note">O participante acompanha toda a experiência como passageiro.</p>
+
+        <div class="fl-price-row">
+          <div class="fl-price-col">
+            <span class="fl-price-label">Valor</span>
+            <p class="fl-price-value"><span class="fl-price-currency">R$</span>1.750<span class="fl-price-cents">,00</span></p>
+            <span class="fl-price-car">SS600</span>
+          </div>
+          <div class="fl-price-sep"></div>
+          <div class="fl-price-col">
+            <span class="fl-price-label">Valor</span>
+            <p class="fl-price-value"><span class="fl-price-currency">R$</span>2.300<span class="fl-price-cents">,00</span></p>
+            <span class="fl-price-car">420R</span>
+          </div>
         </div>
+
         <ul class="pkg-features">
-          <li>Uma volta em cada modelo — experiencie a diferença entre os dois</li>
-          <li>SS600 + 420R em uma única sessão na pista</li>
+          <li>Race Experience</li>
+          <li>Piloto profissional</li>
+          <li>Equipamentos de segurança</li>
+          <li>Acesso ao Festival de Interlagos</li>
         </ul>
         <button
           class="pkg-cta pkg-cta--lime open-lead-modal"
-          data-plan="Fast Lap Combo SS600 + 420R"
-          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+Combo+Fast+Lap+(SS600+%2B+420R)+da+Race+Experience+(26%2F07).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
-          data-product-key="fastlap-combo"
-          data-category="Fast Laps"
-          data-product="Fast Laps Combo"
-          data-price="R$ 3.600,00"
-          aria-label="Reservar Fast Lap Combo"
-        >RESERVAR MINHA VOLTA</button>
+          data-plan="Race Experience"
+          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+Race+Experience+do+Festival+de+Interlagos.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
+          data-product-key="race-experience"
+          data-category="Experiências"
+          data-product="Race Experience"
+          aria-label="Quero viver o Race Experience"
+        >QUERO VIVER ESSA EXPERIÊNCIA</button>
       </article>
 
     </div><!-- /pkg-grid -->
 
+    <div class="pkg-dots" aria-hidden="true">
+      <span class="pkg-dot pkg-dot--active"></span>
+      <span class="pkg-dot"></span>
+    </div>
+
+    <div class="fl-info-highlight" data-r="up">
+      <span class="fl-info-icon" aria-hidden="true">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 9a3 3 0 1 0 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 1 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
+          <path d="M13 5v2"/>
+          <path d="M13 17v2"/>
+          <path d="M13 11v2"/>
+        </svg>
+      </span>
+      <div class="fl-info-content">
+        <p class="fl-info-title">Seu acesso ao Festival já está incluso.</p>
+        <p class="fl-info-text">Ao adquirir o Fast Lap Experience ou o Race Experience, você recebe automaticamente seu ingresso para o Festival de Interlagos. Não é necessário comprar ingresso separadamente.</p>
+      </div>
+    </div>
+
     <p class="pkg-footnote" data-r="up">
-      <em>*Todos os carros são conduzidos exclusivamente por pilotos profissionais.</em>
+      <em>*Todas as experiências são conduzidas por pilotos profissionais.</em>
     </p>
 
   </div>
 </section>
 
-<section id="sec-packages" aria-labelledby="pkg-heading" style="scroll-margin-top:100px">
+<section id="sec-packages" aria-labelledby="pkg-heading" style="scroll-margin-top:100px; display:none">
   <div class="wrap">
 
     <header class="pkg-header" data-r>
@@ -730,7 +752,7 @@
         <button
           class="pkg-cta pkg-cta--lime open-lead-modal"
           data-plan="Fan Experience"
-          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+pacote+FAN+EXPERIENCE+da+Race+Experience+(26%2F07).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
+          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+pacote+FAN+EXPERIENCE+da+Race+Experience+(27+a+30%2F08).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
           data-product-key="race-fan-experience"
           data-category="Race Experience"
           data-product="Fan Experience"
@@ -771,7 +793,7 @@
         <button
           class="pkg-cta pkg-cta--lime open-lead-modal"
           data-plan="Podium Club"
-          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+pacote+PODIUM+CLUB+da+Race+Experience+(26%2F07).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
+          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+pacote+PODIUM+CLUB+da+Race+Experience+(27+a+30%2F08).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
           data-product-key="race-podium-club"
           data-category="Race Experience"
           data-product="Podium Club"
@@ -808,7 +830,7 @@
         <button
           class="pkg-cta pkg-cta--lime open-lead-modal"
           data-plan="Champion Experience"
-          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+pacote+CHAMPION+EXPERIENCE+da+Race+Experience+(26%2F07).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
+          data-wa="https://wa.me/5515998570854?text=Ol%C3%A1%21+Tenho+interesse+no+pacote+CHAMPION+EXPERIENCE+da+Race+Experience+(27+a+30%2F08).+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F"
           data-product-key="race-champion-experience"
           data-category="Race Experience"
           data-product="Champion Experience"
@@ -827,56 +849,75 @@
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     §6  CRONOGRAMA 26 DE JULHO
+     §6  CRONOGRAMA — FESTIVAL DE INTERLAGOS
 ════════════════════════════════════════════════════════ -->
 <section id="sec-cronograma">
   <div class="legacy-cronograma" data-r>
     <div class="legacy-cronograma-header">
-      <span class="label">PROGRAMAÇÃO</span>
-      <h3>26 de Julho. A partir das 8h30.</h3>
-      <p>Autódromo Fazenda Capuava, Indaiatuba/SP</p>
+      <span class="label">Horários</span>
+      <h3>Programação do Festival</h3>
+      <p>Autódromo José Carlos Pace, Interlagos</p>
     </div>
 
-    <div class="crono-timeline">
-      <div class="crono-item">
-        <div class="crono-time">08h30 – 09h00</div>
-        <div class="crono-dot-wrap"><div class="crono-dot"></div></div>
-        <div class="crono-activity">Credenciamento<br>/ Coffee</div>
+    <div class="fest-timeline" data-r="up">
+      <div class="fest-timeline-item">
+        <span class="fest-timeline-dot-wrap"><span class="fest-timeline-dot"></span></span>
+        <h4 class="fest-timeline-date">27/08</h4>
+        <span class="fest-timeline-day">Quinta-feira</span>
+        <p class="fest-timeline-text">Funcionamento de 12h às 20h<br>Entrada limite até 19h</p>
       </div>
-      <div class="crono-item">
-        <div class="crono-time">09h00 – 09h30</div>
-        <div class="crono-dot-wrap"><div class="crono-dot"></div></div>
-        <div class="crono-activity">Bate-papo<br>com os pilotos</div>
+      <div class="fest-timeline-item fest-timeline-item--highlight">
+        <span class="fest-timeline-dot-wrap"><span class="fest-timeline-dot fest-timeline-dot--highlight"></span></span>
+        <h4 class="fest-timeline-date">28/08 – 29/08</h4>
+        <span class="fest-timeline-day">Sexta-feira e Sábado</span>
+        <span class="fest-timeline-badge">Shows à noite</span>
+        <p class="fest-timeline-text">Exposição de 8h às 20h<br>Shows de 17h às 00h<br>Entrada limite até 21h30</p>
       </div>
-      <div class="crono-item">
-        <div class="crono-time">09h30 – 10h30</div>
-        <div class="crono-dot-wrap"><div class="crono-dot crono-dot--highlight"></div></div>
-        <div class="crono-activity crono-activity--highlight">Race Experience<br>– Champion Experience</div>
-      </div>
-      <div class="crono-item">
-        <div class="crono-time">10h00 – 13h00</div>
-        <div class="crono-dot-wrap"><div class="crono-dot"></div></div>
-        <div class="crono-activity">Fast Lap<br>+ Ativações</div>
-      </div>
-      <div class="crono-item">
-        <div class="crono-time">13h00 – 14h00</div>
-        <div class="crono-dot-wrap"><div class="crono-dot"></div></div>
-        <div class="crono-activity">Almoço</div>
-      </div>
-      <div class="crono-item">
-        <div class="crono-time">14h00 – 16h30</div>
-        <div class="crono-dot-wrap"><div class="crono-dot crono-dot--highlight"></div></div>
-        <div class="crono-activity crono-activity--highlight">Race Experience<br>– Podium Club</div>
+      <div class="fest-timeline-item">
+        <span class="fest-timeline-dot-wrap"><span class="fest-timeline-dot"></span></span>
+        <h4 class="fest-timeline-date">30/08</h4>
+        <span class="fest-timeline-day">Domingo</span>
+        <p class="fest-timeline-text">Exposição de 8h às 20h<br>Shows de 17h às 22h<br>Entrada limite até 19h</p>
       </div>
     </div>
 
-    <div class="crono-cta">
-      <a href="#sec-packages" class="btn btn-lime">
-        <span class="flag"></span>PARTICIPAR — 26 DE JULHO
-      </a>
+    <div class="fest-parking-bar" data-r="up">
+      <h4 class="fest-parking-title">Estacionamento</h4>
+      <div class="fest-parking-row">
+        <div class="fest-parking-col">
+          <span class="fest-parking-label">Carros</span>
+          <span class="fest-parking-price">R$ 100,00</span>
+        </div>
+        <div class="fest-parking-sep"></div>
+        <div class="fest-parking-col">
+          <span class="fest-parking-label">Motos</span>
+          <span class="fest-parking-price">R$ 35,00</span>
+        </div>
+      </div>
+      <p class="fest-parking-note">Entrada de carros pelo Portão 9 e motos pelo Portão TL</p>
     </div>
   </div>
 
+</section>
+
+<!-- ══════════════════ MAPA DE ACESSO ════════════════════ -->
+<section id="sec-mapa-acesso">
+  <a class="fest-map-card" href="https://maps.app.goo.gl/aMe2cFXaBaK1yMMX6" target="_blank" rel="noopener" data-r="up">
+    <div class="fest-map-header">
+      <span class="fest-map-pin">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.6" fill="currentColor"/></svg>
+      </span>
+      <p class="fest-map-headline">o evento acontece no <strong>Autódromo José Carlos Pace, Interlagos</strong> em São Paulo</p>
+    </div>
+    <div class="fest-map-image">
+      <img src="/assets/images/mapa-acesso-portao9.webp" alt="Mapa de acesso ao Portão 9 do Autódromo de Interlagos, com a localização da Scuderia Bandeiras Truck Lounge" loading="lazy">
+      <span class="fest-map-badge">Toque para abrir</span>
+    </div>
+    <div class="fest-map-footer">
+      <span class="fest-map-footer-text">Entrada pelo <em>Portão 9</em>, na Av. Jacinto Júlio</span>
+      <span class="fest-map-cta">Abrir no Google Maps<svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </a>
 </section>
 
 
@@ -894,48 +935,48 @@
     </div>
 
     <div class="cte-scatter" id="cteScatter">
-      <div class="cte-photo-card" data-cte-idx="0">
+      <div class="cte-photo-card" data-cte-idx="0" data-cte-label="01 — Briefing">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-1219.jpg" alt="Briefing" loading="eager">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="1">
+      <div class="cte-photo-card" data-cte-idx="1" data-cte-label="02 — Preparação">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-1302.jpg" alt="Preparação" loading="eager">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="2">
-        <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-1377.jpg" alt="Primeiro Contato" loading="lazy">
-        <div class="cte-photo-veil"></div>
-      </div>
-      <div class="cte-photo-card" data-cte-idx="3">
+      <div class="cte-photo-card" data-cte-idx="3" data-cte-label="03 — Reação">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-1640.jpg" alt="Reação" loading="lazy">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="4">
-        <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-2557.jpg" alt="Bastidores" loading="lazy">
-        <div class="cte-photo-veil"></div>
-      </div>
-      <div class="cte-photo-card" data-cte-idx="5">
+      <div class="cte-photo-card" data-cte-idx="5" data-cte-label="04 — Performance">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-1844.jpg" alt="Performance" loading="lazy">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="6">
+      <div class="cte-photo-card" data-cte-idx="6" data-cte-label="05 — Competição">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/nova-foto-ponte.jpg" alt="Competição" loading="lazy">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="7">
+      <div class="cte-photo-card" data-cte-idx="7" data-cte-label="06 — Vitória">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-2032.jpg" alt="Vitória" loading="lazy">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="8">
-        <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/nova-foto-time.jpg" alt="Equipe" loading="lazy">
-        <div class="cte-photo-veil"></div>
-      </div>
-      <div class="cte-photo-card" data-cte-idx="9">
+      <div class="cte-photo-card" data-cte-idx="9" data-cte-label="07 — A Pista">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-2352.jpg" alt="A Pista" loading="lazy">
         <div class="cte-photo-veil"></div>
       </div>
-      <div class="cte-photo-card" data-cte-idx="10">
+      <div class="cte-photo-card" data-cte-idx="10" data-cte-label="08 — O Legado">
         <img class="cte-photo-img" src="/assets/images/sections/se%C3%A7%C3%A3o-9/20260528_scuderiabandeiras_raceexperience_fazendacapuava_dudabairros-3227.jpg" alt="O Legado" loading="lazy">
+        <div class="cte-photo-veil"></div>
+      </div>
+      <div class="cte-photo-card" data-cte-idx="11" data-cte-label="09 — Nos Boxes">
+        <img class="cte-photo-img" src="/assets/images/o%20que%20acontece%20nas%20pistas/2.jpeg" alt="Caterham laranja na pista, em frente ao box" loading="lazy">
+        <div class="cte-photo-veil"></div>
+      </div>
+      <div class="cte-photo-card" data-cte-idx="12" data-cte-label="10 — A Bordo">
+        <img class="cte-photo-img" src="/assets/images/o%20que%20acontece%20nas%20pistas/3.jpeg" alt="Passageiro registrando a experiência dentro do Caterham" loading="lazy">
+        <div class="cte-photo-veil"></div>
+      </div>
+      <div class="cte-photo-card" data-cte-idx="13" data-cte-label="11 — Na Pista">
+        <img class="cte-photo-img" src="/assets/images/o%20que%20acontece%20nas%20pistas/4.jpeg" alt="Caterhams em fila na pista, com o lago ao fundo" loading="lazy">
         <div class="cte-photo-veil"></div>
       </div>
     </div>
@@ -944,7 +985,7 @@
 </section>
 
 <!-- ══════════════════ GUIA DO PARTICIPANTE ════════════════════ -->
-<section id="sec-pdf-guide">
+<section id="sec-pdf-guide" style="display:none">
   <div class="wrap">
 
     <div class="pdf-guide-header" data-r>
@@ -961,9 +1002,9 @@
           <span class="pdf-cover-label mono">Guia do Participante</span>
           <h3 class="pdf-cover-title">Race<br>Experience</h3>
           <div class="pdf-cover-meta">
-            <span>26 JUL 2026</span>
+            <span>27–30 AGO 2026</span>
             <span class="pdf-cover-sep">·</span>
-            <span>Autódromo Fazenda Capuava</span>
+            <span>Autódromo de Interlagos</span>
           </div>
           <div class="pdf-cover-bar"></div>
           <p class="pdf-cover-edition">Edição do Participante — Confidencial</p>
@@ -977,7 +1018,7 @@
           <span class="pdf-section-num mono">01</span>
           <div class="pdf-section-body">
             <h4 class="pdf-section-title">Credenciamento &amp; Chegada</h4>
-            <p class="pdf-section-desc">Horários, local de recepção, como se identificar e o que esperar ao chegar no Autódromo Fazenda Capuava.</p>
+            <p class="pdf-section-desc">Horários, local de recepção, como se identificar e o que esperar ao chegar no Autódromo de Interlagos.</p>
           </div>
         </div>
 
@@ -1054,6 +1095,7 @@
     <div class="test-vid-wrap" id="test-vid-wrap">
       <video class="test-vid" id="test-vid" playsinline preload="metadata"></video>
       <div class="test-vid-overlay"></div>
+      <div class="test-vid-progress" id="testVidProgress"><div class="test-vid-progress-fill" id="testVidProgressFill"></div></div>
       <button class="test-vid-btn" id="test-vid-btn" aria-label="Reproduzir depoimento">
         <svg class="test-vid-icon-play" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M8 5.14v14l11-7-11-7z"/>
@@ -1073,7 +1115,7 @@
 </section>
 
 <!-- ═══ FOR BUSINESS — bridge (extraído de sec-people) ═══ -->
-  <div class="people-tb-bridge" id="sec-for-business" data-r>
+  <div class="people-tb-bridge" id="sec-for-business" data-r style="display:none">
     <div class="tb-bridge-accent"></div>
     <span class="label tb-bridge-label">For Business</span>
     <h3>O automobilismo ensina<br>muito mais do que pilotagem.</h3>
@@ -1093,7 +1135,7 @@
         Viva o Race Experience. <em>Vagas limitadas!</em>
       </h2>
       <div class="final-cta-actions">
-        <a href="#sec-packages" class="btn btn-lime final-cta-btn">
+        <a href="#sec-fast-laps" class="btn btn-lime final-cta-btn">
           GARANTA SUA VAGA
         </a>
       </div>
@@ -1199,7 +1241,7 @@
       <h2 class="plt-new-headline">Ao lado de quem vive<br>performance no limite.</h2>
       <p class="plt-new-intro">
         A Race Experience é conduzida por profissionais que construíram suas carreiras
-        dentro do automobilismo de alto nível — pilotos confirmados para o evento de 26/07.
+        dentro do automobilismo de alto nível — pilotos confirmados para o evento de 27 a 30/08.
       </p>
     </div>
 
@@ -1261,7 +1303,7 @@
     </p>
 
     <div class="plt-new-cta" data-r>
-      <a href="#sec-packages" class="btn btn-lime">
+      <a href="#sec-fast-laps" class="btn btn-lime">
         FALAR COM O TIME
       </a>
     </div>
@@ -1449,14 +1491,20 @@
     <h2 class="lead-modal-title" id="lead-modal-title">Garantir<br>minha vaga.</h2>
     <p class="lead-modal-body">Preencha seus dados e entraremos em contato pelo WhatsApp para confirmar sua reserva.</p>
     <form id="leadModalForm" class="lead-modal-form">
-      <input type="text" name="nome" placeholder="Seu nome" class="lead-modal-input" autocomplete="name" required>
-      <input type="tel" name="telefone" placeholder="Seu WhatsApp" class="lead-modal-input" autocomplete="tel" required>
+      <input type="text" name="nome" placeholder="Seu nome" class="lead-modal-input" autocomplete="name" autocapitalize="words" required>
+      <input type="tel" name="telefone" placeholder="Seu WhatsApp" class="lead-modal-input" autocomplete="tel" inputmode="tel" required>
       <button type="submit" class="lead-modal-submit" id="leadModalSubmit">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
         GARANTIR MINHA VAGA
       </button>
     </form>
   </div>
+</div>
+
+<div class="mob-sticky-cta" id="mobStickyCta">
+  <a href="#sec-fast-laps" class="btn btn-lime">
+    <span class="flag"></span>Garantir vaga — 27 a 30 de Agosto
+  </a>
 </div>
 
 <script src="/scripts/lead-integration.js"></script>

@@ -31,9 +31,11 @@
     document.body.style.overflow = '';
   }
 
-  btn.addEventListener('click', openMenu);
+  btn.addEventListener('click', function () {
+    if (nav.classList.contains('open')) closeMenu(); else openMenu();
+  });
   nav.addEventListener('click', function(e) {
-    if (e.target === nav) closeMenu();
+    if (e.target === nav || e.target.closest('.mob-nav-link')) closeMenu();
   });
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMenu();
@@ -47,9 +49,9 @@
   });
   }
 
-  // hero parallax
+  // hero parallax (desktop only — evita jank de scroll no mobile)
   const hBg = document.getElementById('heroBg');
-  if (hBg) {
+  if (hBg && window.innerWidth > 768) {
   window.addEventListener('scroll', () => {
     if (window.scrollY < window.innerHeight * 1.4)
       hBg.style.transform = `scale(1) translateY(${window.scrollY * 0.22}px)`;
@@ -117,18 +119,34 @@
   // video sound toggle
   const reelSound = document.getElementById('reelSound');
   if (reelSound) {
-  const reelVideos = [document.getElementById('reelDesk'), document.getElementById('reelMob')];
   const iconMuted = document.getElementById('iconMuted');
   const iconSound = document.getElementById('iconSound');
   let reelMuted = true;
   reelSound.addEventListener('click', () => {
     reelMuted = !reelMuted;
-    reelVideos.forEach(v => { if (v) { v.muted = reelMuted; v.volume = 1; } });
+    const activeVideo = window.matchMedia('(max-width:768px)').matches
+      ? document.getElementById('reelMob')
+      : document.getElementById('reelDesk');
+    if (activeVideo) { activeVideo.muted = reelMuted; activeVideo.volume = 1; }
     iconMuted.style.display = reelMuted ? '' : 'none';
     iconSound.style.display = reelMuted ? 'none' : '';
     reelSound.setAttribute('aria-label', reelMuted ? 'Ativar som' : 'Silenciar');
   });
   }
+
+  // mobile sticky CTA — aparece depois que o reel sai da viewport
+  (function () {
+    if (window.innerWidth > 768) return;
+    var bar = document.getElementById('mobStickyCta');
+    var reelSection = document.getElementById('reel');
+    if (!bar || !reelSection) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        bar.classList.toggle('show', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+    io.observe(reelSection);
+  })();
 
   // ── Seções 2-4: Carousel + Scroll Story + Lab
 /* ============================================================
@@ -443,18 +461,223 @@
   goTo(0);
 })();
 
+/* ── Ativações: narrativa cinematográfica (pin + 5 capítulos) ──
+   Mesma técnica de #sec-caterham-exp: wrapper alto (620vh) + elemento
+   sticky + progresso 0..1 lido via getBoundingClientRect no scroll
+   nativo (sem libs, sem hijack de wheel). Cada capítulo tem uma janela
+   de progresso própria: entra (crossfade+scale) → estável (legível) →
+   cresce (scale up + blur leve) → crossfade pro próximo. */
+(function () {
+  var section = document.getElementById('sec-ativacoes');
+  if (!section) return;
+  var items  = Array.from(section.querySelectorAll('.chp-item'));
+  var media  = Array.from(section.querySelectorAll('.chp-media-img'));
+  var numBtns = Array.from(section.querySelectorAll('.chp-num-btn'));
+  var fill   = document.getElementById('chpProgressFill');
+  if (!items.length || !media.length) return;
+
+  var N = items.length;
+  var CH = 1 / N;
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // CSS fallback (stacked list) already handles this case
+  if (window.innerWidth <= 768) return; // mobile usa carrossel horizontal por swipe (ver IIFE abaixo)
+
+  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+  var peakScale = 1.32;
+  function refreshScale() {
+    var vw = window.innerWidth;
+    peakScale = vw <= 640 ? 1.1 : vw <= 900 ? 1.18 : 1.32;
+  }
+  refreshScale();
+
+  var lastActive = 0;
+
+  function update() {
+    var vh = window.innerHeight;
+    var rect = section.getBoundingClientRect();
+    var scrollRange = Math.max(1, section.offsetHeight - vh);
+    var p = clamp(-rect.top / scrollRange, 0, 1);
+
+    if (fill) fill.style.width = (p * 100).toFixed(2) + '%';
+
+    var activeIdx = clamp(Math.floor(p / CH), 0, N - 1);
+    if (activeIdx !== lastActive) {
+      lastActive = activeIdx;
+      items.forEach(function (item, i) {
+        var on = i === activeIdx;
+        item.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      numBtns.forEach(function (btn, i) {
+        btn.classList.toggle('active', i === activeIdx);
+        btn.setAttribute('aria-selected', i === activeIdx ? 'true' : 'false');
+      });
+    }
+
+    for (var i = 0; i < N; i++) {
+      var chapStart = i * CH;
+      var chapEnd   = (i + 1) * CH;
+
+      /* -- media: scale / opacity / blur -- */
+      var enterEnd = chapStart + 0.12 * CH;
+      var holdEnd  = chapStart + 0.62 * CH;
+      var growEnd  = chapStart + 0.82 * CH;
+      var crossInStart = i === 0 ? -1 : chapStart - 0.18 * CH;
+
+      var scale, blur;
+      if (i > 0 && p > chapStart && p <= enterEnd) {
+        var te = (p - chapStart) / (enterEnd - chapStart);
+        scale = lerp(peakScale, 1, easeOutCubic(clamp(te, 0, 1)));
+        blur = lerp(2.4, 0, easeOutCubic(clamp(te, 0, 1)));
+      } else if (p > enterEnd && p <= holdEnd) {
+        scale = 1; blur = 0;
+      } else if (p > holdEnd && p <= growEnd) {
+        var tg = (p - holdEnd) / (growEnd - holdEnd);
+        scale = lerp(1, peakScale, easeInOutCubic(clamp(tg, 0, 1)));
+        blur = lerp(0, 2.4, clamp(tg, 0, 1));
+      } else if (p > growEnd && p <= chapEnd) {
+        scale = peakScale;
+        blur = lerp(2.4, 1, (p - growEnd) / Math.max(1e-6, chapEnd - growEnd));
+      } else if (p <= chapStart) {
+        scale = peakScale; blur = 2.4;
+      } else {
+        scale = peakScale; blur = 1;
+      }
+
+      var opacity;
+      if (crossInStart >= 0 && p > crossInStart && p <= chapStart) {
+        opacity = (p - crossInStart) / (chapStart - crossInStart);
+      } else if (p > chapStart && p <= growEnd) {
+        opacity = 1;
+      } else if (p > growEnd && p <= chapEnd) {
+        opacity = 1 - (p - growEnd) / Math.max(1e-6, chapEnd - growEnd);
+      } else if (i === 0 && p <= growEnd) {
+        opacity = 1;
+      } else {
+        opacity = 0;
+      }
+      opacity = clamp(opacity, 0, 1);
+
+      var tx = -6 * ((scale - 1) / (peakScale - 1 || 1));
+      var m = media[i];
+      if (m) {
+        m.style.opacity = opacity.toFixed(3);
+        m.style.transform = 'scale(' + scale.toFixed(3) + ') translateX(' + tx.toFixed(2) + '%)';
+        m.style.filter = blur > 0.02 ? 'blur(' + blur.toFixed(2) + 'px)' : 'none';
+        m.style.zIndex = String(10 + (opacity > 0.02 ? (i === activeIdx ? 2 : 1) : 0));
+      }
+
+      /* -- text: fade + translateY + blur (independent, tighter window) -- */
+      var textInEnd  = chapStart + 0.10 * CH;
+      var textHoldEnd = chapStart + 0.58 * CH;
+      var textOutEnd  = chapStart + 0.75 * CH;
+
+      var tOpacity, ty, tblur;
+      if (p <= chapStart) {
+        tOpacity = i === 0 && p === 0 ? 1 : 0; ty = 18; tblur = 2;
+      } else if (p <= textInEnd) {
+        var tin = (p - chapStart) / (textInEnd - chapStart);
+        tOpacity = easeOutCubic(clamp(tin, 0, 1));
+        ty = lerp(18, 0, easeOutCubic(clamp(tin, 0, 1)));
+        tblur = lerp(2, 0, clamp(tin, 0, 1));
+      } else if (p <= textHoldEnd) {
+        tOpacity = 1; ty = 0; tblur = 0;
+      } else if (p <= textOutEnd) {
+        var tout = (p - textHoldEnd) / (textOutEnd - textHoldEnd);
+        tOpacity = 1 - easeOutCubic(clamp(tout, 0, 1));
+        ty = lerp(0, -14, clamp(tout, 0, 1));
+        tblur = lerp(0, 2, clamp(tout, 0, 1));
+      } else {
+        tOpacity = 0; ty = -14; tblur = 2;
+      }
+      if (i === 0 && p <= 0) { tOpacity = 1; ty = 0; tblur = 0; }
+
+      var it = items[i];
+      it.style.opacity = tOpacity.toFixed(3);
+      it.style.transform = 'translateY(' + ty.toFixed(2) + 'px)';
+      it.style.filter = tblur > 0.02 ? 'blur(' + tblur.toFixed(2) + 'px)' : 'none';
+      it.style.pointerEvents = tOpacity > 0.4 ? 'auto' : 'none';
+    }
+  }
+
+  numBtns.forEach(function (btn, i) {
+    btn.addEventListener('click', function () {
+      var vh = window.innerHeight;
+      var scrollRange = Math.max(1, section.offsetHeight - vh);
+      var targetP = (i + 0.02) * CH;
+      var top = section.getBoundingClientRect().top + window.scrollY + targetP * scrollRange;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function () { refreshScale(); update(); }, { passive: true });
+  update();
+})();
+
+/* ── Ativações mobile: carrossel horizontal por capítulo (scroll-snap nativo) ──
+   Substitui o pin+scrub acima em telas <=768px. Um capítulo = 1 tela,
+   a mídia crossfada em sincronia via classe .mob-active. */
+(function () {
+  if (window.innerWidth > 768) return;
+  var section = document.getElementById('sec-ativacoes');
+  if (!section) return;
+  var track = section.querySelector('.chp-item-stack');
+  var items = track ? Array.from(track.querySelectorAll('.chp-item')) : [];
+  var mediaImgs = Array.from(section.querySelectorAll('.chp-media-img'));
+  var numBtns = Array.from(section.querySelectorAll('.chp-num-btn'));
+  var fill = document.getElementById('chpProgressFill');
+  if (!track || !items.length) return;
+
+  function setActive(i) {
+    mediaImgs.forEach(function (m, idx) { m.classList.toggle('mob-active', idx === i); });
+    numBtns.forEach(function (b, idx) {
+      b.classList.toggle('active', idx === i);
+      b.setAttribute('aria-selected', idx === i ? 'true' : 'false');
+    });
+    items.forEach(function (it, idx) { it.setAttribute('aria-hidden', idx === i ? 'false' : 'true'); });
+    if (fill) fill.style.width = ((i / (items.length - 1)) * 100).toFixed(2) + '%';
+  }
+
+  var ticking = false;
+  track.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var idx = Math.round(track.scrollLeft / track.clientWidth);
+      idx = Math.max(0, Math.min(items.length - 1, idx));
+      setActive(idx);
+      ticking = false;
+    });
+  }, { passive: true });
+
+  numBtns.forEach(function (btn, idx) {
+    btn.addEventListener('click', function () {
+      track.scrollTo({ left: idx * track.clientWidth, behavior: 'smooth' });
+    });
+  });
+
+  setActive(0);
+})();
+
 /* ── Carrossel DNA da Pista: auto-scroll + loop infinito no mobile ── */
 (function() {
   if (window.innerWidth > 900) return;
   var carousel = document.querySelector('.leg-carousel');
   if (!carousel) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var paused = false;
+  var offscreen = false;
   var resumeTimer;
   var SPEED = 0.9; // px por frame
 
   function step() {
-    if (!paused) {
+    if (!paused && !offscreen) {
       carousel.scrollLeft += SPEED;
       var half = Math.floor(carousel.scrollWidth / 2);
       if (carousel.scrollLeft >= half) {
@@ -465,6 +688,10 @@
   }
   requestAnimationFrame(step);
 
+  new IntersectionObserver(function (entries) {
+    offscreen = !entries[0].isIntersecting;
+  }, { threshold: 0 }).observe(carousel);
+
   carousel.addEventListener('touchstart', function() {
     paused = true;
     clearTimeout(resumeTimer);
@@ -472,7 +699,7 @@
 
   carousel.addEventListener('touchend', function() {
     clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(function() { paused = false; }, 2000);
+    resumeTimer = setTimeout(function() { paused = false; }, 6000);
   }, { passive: true });
 })();
 
@@ -681,6 +908,93 @@
 
 })();
 
+/* ── Ficha técnica: play/pause dos vídeos dos carros só quando visíveis (mobile) ── */
+(function () {
+  if (window.innerWidth > 768) return;
+  var videos = Array.from(document.querySelectorAll('.ft-car-video'));
+  if (!videos.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (entry.isIntersecting) { v.play().catch(function () {}); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.25 });
+  videos.forEach(function (v) {
+    v.removeAttribute('autoplay');
+    v.pause();
+    io.observe(v);
+  });
+})();
+
+/* ── Carrossel de dots genérico: sincroniza .pkg-grid--two e .ft-grid no mobile ── */
+(function () {
+  if (window.innerWidth > 768) return;
+
+  function wire(trackSel, dotSelActive, dotsWrapSel) {
+    var track = document.querySelector(trackSel);
+    var dotsWrap = document.querySelector(dotsWrapSel);
+    if (!track || !dotsWrap) return;
+    var cards = Array.from(track.children);
+    var dots = Array.from(dotsWrap.children);
+    if (!cards.length || !dots.length) return;
+
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var idx = Math.round(track.scrollLeft / track.clientWidth);
+        idx = Math.max(0, Math.min(dots.length - 1, idx));
+        dots.forEach(function (d, i) { d.classList.toggle(dotSelActive, i === idx); });
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  wire('.panel-photos', 'panel-dot--active', '.panel-dots');
+})();
+
+/* ── Dica "arraste para ver mais": some assim que o usuário já arrastou uma vez ── */
+(function () {
+  if (window.innerWidth > 768) return;
+
+  function fadeHintOnScroll(track) {
+    if (!track) return;
+    var hint = track.parentElement.querySelector('.carousel-hint');
+    if (!hint) return;
+    track.addEventListener('scroll', function onScroll() {
+      if (track.scrollLeft > 12) {
+        hint.classList.add('hint-hidden');
+        track.removeEventListener('scroll', onScroll);
+      }
+    }, { passive: true });
+  }
+
+  fadeHintOnScroll(document.querySelector('.panel-photos'));
+  fadeHintOnScroll(document.querySelector('#sec-caterham-exp .cte-scatter'));
+})();
+
+/* ── Progresso do trilho "O que acontece na pista" (mobile) ── */
+(function () {
+  if (window.innerWidth > 768) return;
+  var track = document.querySelector('#sec-caterham-exp .cte-scatter');
+  var fill = document.getElementById('cteTrackProgressFill');
+  if (!track || !fill) return;
+
+  var ticking = false;
+  track.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var max = track.scrollWidth - track.clientWidth;
+      var pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+      fill.style.width = pct.toFixed(1) + '%';
+      ticking = false;
+    });
+  }, { passive: true });
+})();
+
   // ── Seções 12-13: Depoimentos + CTA
 /* ============================================================
    SECTION 12 — TESTIMONIALS CAROUSEL
@@ -729,6 +1043,22 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(loadSrc, 300);
   });
+
+  // barra de progresso tocável (mobile — estilo Stories)
+  if (window.innerWidth <= 768) {
+    var progressEl = document.getElementById('testVidProgress');
+    var fillEl = document.getElementById('testVidProgressFill');
+    if (progressEl && fillEl) {
+      video.addEventListener('timeupdate', function () {
+        if (video.duration) fillEl.style.width = (video.currentTime / video.duration * 100) + '%';
+      });
+      progressEl.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var rect = progressEl.getBoundingClientRect();
+        if (video.duration) video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
+      });
+    }
+  }
 
   loadSrc();
 })();
@@ -964,10 +1294,12 @@
     modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('lead-modal--open');
     document.body.style.overflow = 'hidden';
-    setTimeout(function () {
-      var first = form.querySelector('.lead-modal-input');
-      if (first) first.focus();
-    }, 320);
+    if (window.innerWidth > 768) {
+      setTimeout(function () {
+        var first = form.querySelector('.lead-modal-input');
+        if (first) first.focus();
+      }, 320);
+    }
   }
 
   function closeModal() {
