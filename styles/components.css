@@ -7471,34 +7471,6 @@ footer {
   .fest-mobile-cta { display: inline-flex; margin-top: 22px; }
 }
 
-/* ── ATIVAÇÕES: carrossel horizontal por capítulo (substitui pin+scrub) ── */
-@media (max-width: 768px) {
-  #sec-ativacoes { height: auto; }
-  #sec-ativacoes .chp-pin { position: static; height: auto; overflow: visible; }
-  #sec-ativacoes .chp-stage { flex-direction: column; overflow: visible; }
-  #sec-ativacoes .chp-media { width: 100%; order: 1; height: 38vh; }
-  #sec-ativacoes .chp-media-img { opacity: 0; transform: none; filter: none; transition: opacity .35s ease; }
-  #sec-ativacoes .chp-media-img.mob-active { opacity: 1; z-index: 2; }
-  #sec-ativacoes .chp-panel { width: 100%; order: 2; max-height: none; overflow: visible; justify-content: flex-start; gap: 20px; }
-  #sec-ativacoes .chp-item-stack {
-    display: flex; overflow-x: auto; overflow-y: hidden;
-    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; margin: 0 -24px;
-  }
-  #sec-ativacoes .chp-item-stack::-webkit-scrollbar { display: none; }
-  #sec-ativacoes .chp-item {
-    grid-area: unset; flex: 0 0 100%; max-width: 100%;
-    scroll-snap-align: center; opacity: 1 !important; pointer-events: auto !important;
-    transform: none !important; filter: none !important;
-    padding: 4px 24px 0; box-sizing: border-box;
-  }
-  #sec-ativacoes .chp-cta { width: 100%; display: flex; justify-content: center; margin-top: 4px; }
-  #sec-ativacoes .chp-num-btn {
-    min-width: 44px; min-height: 44px; display: inline-flex;
-    align-items: center; justify-content: center; padding: 10px 4px;
-  }
-  #sec-ativacoes .chp-nums { gap: 6px; justify-content: center; }
-}
 @media (max-width: 380px) {
   #sec-ativacoes .chp-icons { gap: 14px; }
   #sec-ativacoes .chp-icon { max-width: 104px; }

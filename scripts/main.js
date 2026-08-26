@@ -481,7 +481,6 @@
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) return; // CSS fallback (stacked list) already handles this case
-  if (window.innerWidth <= 768) return; // mobile usa carrossel horizontal por swipe (ver IIFE abaixo)
 
   function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
   function lerp(a, b, t) { return a + (b - a) * t; }
@@ -617,51 +616,6 @@
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', function () { refreshScale(); update(); }, { passive: true });
   update();
-})();
-
-/* ── Ativações mobile: carrossel horizontal por capítulo (scroll-snap nativo) ──
-   Substitui o pin+scrub acima em telas <=768px. Um capítulo = 1 tela,
-   a mídia crossfada em sincronia via classe .mob-active. */
-(function () {
-  if (window.innerWidth > 768) return;
-  var section = document.getElementById('sec-ativacoes');
-  if (!section) return;
-  var track = section.querySelector('.chp-item-stack');
-  var items = track ? Array.from(track.querySelectorAll('.chp-item')) : [];
-  var mediaImgs = Array.from(section.querySelectorAll('.chp-media-img'));
-  var numBtns = Array.from(section.querySelectorAll('.chp-num-btn'));
-  var fill = document.getElementById('chpProgressFill');
-  if (!track || !items.length) return;
-
-  function setActive(i) {
-    mediaImgs.forEach(function (m, idx) { m.classList.toggle('mob-active', idx === i); });
-    numBtns.forEach(function (b, idx) {
-      b.classList.toggle('active', idx === i);
-      b.setAttribute('aria-selected', idx === i ? 'true' : 'false');
-    });
-    items.forEach(function (it, idx) { it.setAttribute('aria-hidden', idx === i ? 'false' : 'true'); });
-    if (fill) fill.style.width = ((i / (items.length - 1)) * 100).toFixed(2) + '%';
-  }
-
-  var ticking = false;
-  track.addEventListener('scroll', function () {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () {
-      var idx = Math.round(track.scrollLeft / track.clientWidth);
-      idx = Math.max(0, Math.min(items.length - 1, idx));
-      setActive(idx);
-      ticking = false;
-    });
-  }, { passive: true });
-
-  numBtns.forEach(function (btn, idx) {
-    btn.addEventListener('click', function () {
-      track.scrollTo({ left: idx * track.clientWidth, behavior: 'smooth' });
-    });
-  });
-
-  setActive(0);
 })();
 
 /* ── Carrossel DNA da Pista: auto-scroll + loop infinito no mobile ── */
