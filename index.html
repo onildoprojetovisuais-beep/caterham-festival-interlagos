@@ -859,26 +859,55 @@
       <p>Autódromo José Carlos Pace, Interlagos</p>
     </div>
 
-    <div class="fest-timeline" data-r="up">
-      <div class="fest-timeline-item">
-        <span class="fest-timeline-dot-wrap"><span class="fest-timeline-dot"></span></span>
-        <h4 class="fest-timeline-date">27/08</h4>
-        <span class="fest-timeline-day">Quinta-feira</span>
-        <p class="fest-timeline-text">Funcionamento de 12h às 20h<br>Entrada limite até 19h</p>
-      </div>
-      <div class="fest-timeline-item fest-timeline-item--highlight">
-        <span class="fest-timeline-dot-wrap"><span class="fest-timeline-dot fest-timeline-dot--highlight"></span></span>
-        <h4 class="fest-timeline-date">28/08 – 29/08</h4>
-        <span class="fest-timeline-day">Sexta-feira e Sábado</span>
-        <span class="fest-timeline-badge">Shows à noite</span>
-        <p class="fest-timeline-text">Exposição de 8h às 20h<br>Shows de 17h às 00h<br>Entrada limite até 21h30</p>
-      </div>
-      <div class="fest-timeline-item">
-        <span class="fest-timeline-dot-wrap"><span class="fest-timeline-dot"></span></span>
-        <h4 class="fest-timeline-date">30/08</h4>
-        <span class="fest-timeline-day">Domingo</span>
-        <p class="fest-timeline-text">Exposição de 8h às 20h<br>Shows de 17h às 22h<br>Entrada limite até 19h</p>
-      </div>
+    <div class="fest-agenda">
+      <article class="fest-agenda-card d1" data-r="up">
+        <p class="fest-agenda-eyebrow">Dia 01</p>
+        <h4 class="fest-agenda-date">27 de Agosto</h4>
+        <div class="fest-agenda-days"><span>Quinta-feira</span></div>
+
+        <div class="fest-agenda-period">
+          <div class="fest-agenda-row">
+            <span class="fest-agenda-row-label">Reaction Lights</span>
+            <span class="fest-agenda-row-time">14h – 15h</span>
+          </div>
+          <div class="fest-agenda-row">
+            <span class="fest-agenda-row-label">Experiência em pista</span>
+            <span class="fest-agenda-row-time">17h – 17h40</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="fest-agenda-card fest-agenda-card--main d2" data-r="up">
+        <p class="fest-agenda-eyebrow">Dias 02 a 04</p>
+        <h4 class="fest-agenda-date">28 a 30 de Agosto</h4>
+        <div class="fest-agenda-days">
+          <span>Sexta</span><span>Sábado</span><span>Domingo</span>
+        </div>
+
+        <div class="fest-agenda-period">
+          <p class="fest-agenda-period-label">Manhã</p>
+          <div class="fest-agenda-row">
+            <span class="fest-agenda-row-label">Reaction Lights</span>
+            <span class="fest-agenda-row-time">09h – 11h</span>
+          </div>
+          <div class="fest-agenda-row">
+            <span class="fest-agenda-row-label">Experiência em pista</span>
+            <span class="fest-agenda-row-time">11h – 11h40</span>
+          </div>
+        </div>
+
+        <div class="fest-agenda-period">
+          <p class="fest-agenda-period-label">Tarde</p>
+          <div class="fest-agenda-row">
+            <span class="fest-agenda-row-label">Reaction Lights</span>
+            <span class="fest-agenda-row-time">14h – 16h</span>
+          </div>
+          <div class="fest-agenda-row">
+            <span class="fest-agenda-row-label">Experiência em pista</span>
+            <span class="fest-agenda-row-time">17h – 17h40</span>
+          </div>
+        </div>
+      </article>
     </div>
 
     <div class="fest-parking-bar" data-r="up">
@@ -902,22 +931,43 @@
 
 <!-- ══════════════════ MAPA DE ACESSO ════════════════════ -->
 <section id="sec-mapa-acesso">
-  <a class="fest-map-card" href="https://maps.app.goo.gl/aMe2cFXaBaK1yMMX6" target="_blank" rel="noopener" data-r="up">
-    <div class="fest-map-header">
-      <span class="fest-map-pin">
+  <div class="itm" id="itmMap" data-r="up">
+
+    <div class="itm-head">
+      <span class="itm-head-pin">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.6" fill="currentColor"/></svg>
       </span>
-      <p class="fest-map-headline">o evento acontece no <strong>Autódromo José Carlos Pace, Interlagos</strong> em São Paulo</p>
+      <p class="itm-headline">o evento acontece no <strong>Autódromo José Carlos Pace, Interlagos</strong> em São Paulo</p>
     </div>
-    <div class="fest-map-image">
-      <img src="/assets/images/mapa-acesso-portao9.webp" alt="Mapa de acesso ao Portão 9 do Autódromo de Interlagos, com a localização da Scuderia Bandeiras Truck Lounge" loading="lazy">
-      <span class="fest-map-badge">Toque para abrir</span>
+
+    <div class="itm-stage" id="itmStage">
+      <iframe
+        class="itm-frame"
+        src="https://www.google.com/maps?q=-23.7067778,-46.6951111&z=16&output=embed"
+        title="Mapa — Scuderia Bandeiras Truck Lounge, acesso pelo Portão 9 do Autódromo de Interlagos"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        tabindex="-1"
+        aria-hidden="true"></iframe>
+
+      <a class="itm-stage-link" href="https://maps.app.goo.gl/mCLZDyfXwUVreW498" target="_blank" rel="noopener" aria-label="Abrir no Google Maps — Scuderia Bandeiras Truck Lounge, entrada pelo Portão 9">
+        <span class="itm-pin itm-pin--truck" aria-hidden="true">
+          <span class="itm-pin-halo"></span>
+          <img class="itm-pin-badge" src="/assets/images/mapa/pin-truck-lounge.png" alt="">
+        </span>
+        <span class="itm-pin itm-pin--gate" aria-hidden="true">
+          <img class="itm-pin-badge itm-pin-badge--gate" src="/assets/images/mapa/pin-portao9.png" alt="">
+        </span>
+        <span class="itm-tap-badge">Toque para abrir no Google Maps</span>
+      </a>
     </div>
-    <div class="fest-map-footer">
-      <span class="fest-map-footer-text">Entrada pelo <em>Portão 9</em>, na Av. Jacinto Júlio</span>
-      <span class="fest-map-cta">Abrir no Google Maps<svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+
+    <div class="itm-footer">
+      <span class="itm-footer-text">Entrada pelo <em>Portão 9</em>, na Av. Jacinto Júlio</span>
+      <a class="itm-cta btn btn-lime" href="https://maps.app.goo.gl/mCLZDyfXwUVreW498" target="_blank" rel="noopener">Abrir navegação no Google Maps</a>
     </div>
-  </a>
+
+  </div>
 </section>
 
 

@@ -134,18 +134,48 @@
   });
   }
 
-  // mobile sticky CTA — aparece depois que o reel sai da viewport
+  // mobile sticky CTA — aparece depois que o reel sai da viewport,
+  // some durante a seção do mapa e a partir do CTA final/rodapé
   (function () {
     if (window.innerWidth > 768) return;
     var bar = document.getElementById('mobStickyCta');
     var reelSection = document.getElementById('reel');
+    var mapaSection = document.getElementById('sec-mapa-acesso');
+    var finalSection = document.getElementById('sec-final-cta');
     if (!bar || !reelSection) return;
-    var io = new IntersectionObserver(function (entries) {
+
+    var pastReel = false;
+    var inMapa = false;
+    var pastFinal = false;
+
+    function update() {
+      bar.classList.toggle('show', pastReel && !inMapa && !pastFinal);
+    }
+
+    new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        bar.classList.toggle('show', !entry.isIntersecting);
+        pastReel = !entry.isIntersecting;
       });
-    }, { threshold: 0 });
-    io.observe(reelSection);
+      update();
+    }, { threshold: 0 }).observe(reelSection);
+
+    if (mapaSection) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          inMapa = entry.isIntersecting;
+        });
+        update();
+      }, { threshold: 0 }).observe(mapaSection);
+    }
+
+    if (finalSection) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) pastFinal = true;
+        });
+        update();
+      }, { threshold: 0 }).observe(finalSection);
+    }
   })();
 
   // ── Seções 2-4: Carousel + Scroll Story + Lab
@@ -1326,3 +1356,19 @@
     }
   });
 }());
+
+/* ── mapa "Local do Evento" (#sec-mapa-acesso): fade-in do card ao entrar na viewport ── */
+(function () {
+  var root = document.getElementById('itmMap');
+  var stage = document.getElementById('itmStage');
+  if (!root || !stage) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      root.classList.add('is-live');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+  io.observe(stage);
+})();
